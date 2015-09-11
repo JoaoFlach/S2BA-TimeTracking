@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using TimeTracking.MVC.Models;
 
 namespace TimeTracking.MVC
 {
@@ -16,6 +17,7 @@ namespace TimeTracking.MVC
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            EntitiesContext ec = new EntitiesContext();
         }
     }
 }

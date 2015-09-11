@@ -5,14 +5,10 @@ using System.Web;
 
 namespace TimeTracking.MVC.Models
 {
-    public class Project
+    public class ActivityType
     {
-        public int ProjectID { get; set; }
+        public int ActivityTypeID { get; set; }
 
         public virtual ICollection<Activity> Activities { get; set; }
-
-        public virtual User User { get; set; }
-
-        public virtual ICollection<Role> Roles { get; set; }
     }
 }

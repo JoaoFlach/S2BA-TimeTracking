@@ -7,6 +7,14 @@ namespace TimeTracking.MVC.Models
 {
     public class Activity
     {
-        public int Id { get; set; }
-    }
+        public int ActivityID { get; set; }
+
+        public virtual ICollection<UserActivity> UserActivities { get; set; }
+
+        public virtual ActivityType ActivityType { get; set; }
+
+        public virtual Project Project { get; set; }
+
+        public virtual ICollection<Role> Roles { get; set; }
+    } 
 }
