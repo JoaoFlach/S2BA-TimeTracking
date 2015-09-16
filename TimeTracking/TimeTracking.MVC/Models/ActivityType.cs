@@ -9,6 +9,8 @@ namespace TimeTracking.MVC.Models
     {
         public int ActivityTypeID { get; set; }
 
+        public string Name { get; set; }
+
         public virtual ICollection<Activity> Activities { get; set; }
     }
 }
