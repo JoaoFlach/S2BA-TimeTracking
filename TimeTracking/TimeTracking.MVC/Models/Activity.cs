@@ -13,14 +13,12 @@ namespace TimeTracking.MVC.Models
 
         public string Description { get; set; }
 
-        public int Turns { get; set; }
-
-        public virtual ICollection<UserActivity> UserActivities { get; set; }
+        public virtual ICollection<WorkerActivity> WorkerActivities { get; set; }
 
         public virtual ActivityType ActivityType { get; set; }
 
         public virtual Project Project { get; set; }
 
-        public virtual ICollection<Role> Roles { get; set; }
+        public virtual ICollection<Group> Groups { get; set; }
     } 
 }

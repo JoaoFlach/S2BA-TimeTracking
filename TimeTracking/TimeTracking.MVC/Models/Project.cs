@@ -11,10 +11,10 @@ namespace TimeTracking.MVC.Models
 
         public virtual ICollection<Activity> Activities { get; set; }
 
-        public virtual User Owner { get; set; }
+        public virtual Worker Owner { get; set; }
 
         public DateTime Deadline { get; set; }
 
-        public virtual ICollection<Role> Roles { get; set; }
+        public virtual ICollection<Group> Groups { get; set; }
     }
 }

@@ -6,15 +6,15 @@ using System.Web;
 
 namespace TimeTracking.MVC.Models
 {
-    public class UserActivity
+    public class WorkerActivity
     {
-        public int UserActivityID { get; set; }
+        public int WorkerActivityID { get; set; }
 
-        public virtual User User { get; set; }
+        public virtual Worker Worker { get; set; }
 
         public virtual Activity Activity { get; set; }
 
-        public TimeSpan Hours { get; set; }
+        public TimeSpan HoursSpent { get; set; }
 
         public DateTime Date { get; set; }
     }
