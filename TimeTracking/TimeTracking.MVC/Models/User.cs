@@ -9,8 +9,7 @@ namespace TimeTracking.MVC.Models
     public class User
     {
         public int UserID { get; set; }
-
-        [Key]
+                
         public string Email { get; set; }
 
         public virtual ICollection<UserActivity> UserActivities { get; set; }
@@ -18,7 +17,5 @@ namespace TimeTracking.MVC.Models
         public virtual ICollection<Role> Roles { get; set; }
 
         public virtual ICollection<Project> Projects { get; set; }
-
-
     }
 }
