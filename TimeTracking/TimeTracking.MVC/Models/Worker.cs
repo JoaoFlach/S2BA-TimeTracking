@@ -10,6 +10,7 @@ namespace TimeTracking.MVC.Models
     {
         public int WorkerID { get; set; }
 
+        [Required]
         public string Name { get; set; }
               
         public virtual ICollection<WorkerActivity> GroupsActivities { get; set; }
