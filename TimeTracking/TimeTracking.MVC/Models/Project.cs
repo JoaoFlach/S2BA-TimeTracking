@@ -8,6 +8,7 @@ namespace TimeTracking.MVC.Models
 {
     public class Project
     {
+        [Display(Name="Project")]
         public int ProjectID { get; set; }
 
         public virtual ICollection<Activity> Activities { get; set; }
