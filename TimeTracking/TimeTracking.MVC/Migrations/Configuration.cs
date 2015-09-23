@@ -9,7 +9,7 @@ namespace TimeTracking.MVC.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(TimeTracking.MVC.Models.EntitiesContext context)

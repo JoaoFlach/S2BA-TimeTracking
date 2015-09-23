@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Web;
 
@@ -14,5 +15,14 @@ namespace TimeTracking.MVC.Models
         public DbSet<Group> Groups { get; set; }
         public DbSet<Worker> Workers { get; set; }
         public DbSet <WorkerActivity> WorkerActivities { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();           
+                
+        }
+        
+
+        
     }
 }

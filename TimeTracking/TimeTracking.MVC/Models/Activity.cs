@@ -15,8 +15,10 @@ namespace TimeTracking.MVC.Models
 
         public virtual ICollection<WorkerActivity> WorkerActivities { get; set; }
 
+        public int ActivityTypeID { get; set; }
         public virtual ActivityType ActivityType { get; set; }
 
+        public int ProjectID { get; set; }
         public virtual Project Project { get; set; }
 
         public virtual ICollection<Group> Groups { get; set; }
