@@ -50,6 +50,7 @@ namespace TimeTracking.MVC.Controllers
         {
             if (ModelState.IsValid)
             {
+
                 db.Projects.Add(project);
                 db.SaveChanges();
                 return RedirectToAction("Index");
