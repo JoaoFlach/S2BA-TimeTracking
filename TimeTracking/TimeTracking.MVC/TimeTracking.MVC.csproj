@@ -175,7 +175,6 @@
     <Compile Include="Controllers\GroupsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\Projects1Controller.cs" />
     <Compile Include="Controllers\ProjectsController.cs" />
     <Compile Include="Controllers\WorkerActivitiesController.cs" />
     <Compile Include="Controllers\WorkersController.cs" />
@@ -195,6 +194,7 @@
     <Compile Include="Models\WorkerActivity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\ProjectGroupsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\TimeTrackingDb.mdf" />
@@ -255,11 +255,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Projects\Create.cshtml" />
-    <Content Include="Views\Projects\Delete.cshtml" />
-    <Content Include="Views\Projects\Details.cshtml" />
-    <Content Include="Views\Projects\Edit.cshtml" />
-    <Content Include="Views\Projects\Index.cshtml" />
     <Content Include="Views\Workers\Create.cshtml" />
     <Content Include="Views\Workers\Delete.cshtml" />
     <Content Include="Views\Workers\Details.cshtml" />
@@ -285,11 +280,11 @@
     <Content Include="Views\Groups\Details.cshtml" />
     <Content Include="Views\Groups\Edit.cshtml" />
     <Content Include="Views\Groups\Index.cshtml" />
-    <Content Include="Views\Projects1\Create.cshtml" />
-    <Content Include="Views\Projects1\Delete.cshtml" />
-    <Content Include="Views\Projects1\Details.cshtml" />
-    <Content Include="Views\Projects1\Edit.cshtml" />
-    <Content Include="Views\Projects1\Index.cshtml" />
+    <Content Include="Views\Projects\Create.cshtml" />
+    <Content Include="Views\Projects\Delete.cshtml" />
+    <Content Include="Views\Projects\Details.cshtml" />
+    <Content Include="Views\Projects\Edit.cshtml" />
+    <Content Include="Views\Projects\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

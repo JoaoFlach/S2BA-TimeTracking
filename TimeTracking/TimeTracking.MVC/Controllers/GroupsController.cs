@@ -17,7 +17,7 @@ namespace TimeTracking.MVC.Controllers
         // GET: Groups
         public ActionResult Index()
         {
-            return View(db.Groups.ToList());
+            return View(db.Groups.OrderBy(g => g.Name).ToList());
         }
 
         // GET: Groups/Details/5

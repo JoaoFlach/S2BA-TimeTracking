@@ -12,21 +12,44 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.Worker.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjectName)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Deadline)
         </th>
-        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.Groups)
+        </th>
+        <th>
+            Actions
+        </th>
     </tr>
+
+
 
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.Worker.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProjectName)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Deadline)
+        </td>
+        <td>
+            @Html.ListBox("Groups", new SelectList(item.Groups, "GroupID", "Name"))
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ProjectID }) |
             @Html.ActionLink("Details", "Details", new { id=item.ProjectID }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.ProjectID })
         </td>
+       
     </tr>
 }
 

@@ -1,4 +1,4 @@
-﻿@model TimeTracking.MVC.Models.Project
+﻿@model TimeTracking.MVC.ViewModels.ProjectGroupsViewModel
 
 @{
     ViewBag.Title = "Edit";
@@ -15,13 +15,36 @@
         <h4>Project</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.ProjectID)
+        @Html.HiddenFor(model => model.Project.ProjectID)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Deadline, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Project.WorkerID, "WorkerID", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Deadline, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Deadline, "", new { @class = "text-danger" })
+                @Html.DropDownList("WorkerID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Project.WorkerID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Project.ProjectName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Project.ProjectName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Project.ProjectName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Project.Deadline, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Project.Deadline, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Project.Deadline, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model=>model.AllGroups, "Groups", htmlAttributes: new {@class = "control-label col-md-2" })
+            <div class="col-md-offset-2 col-md-10">
+                @*@Html.ListBoxFor(m => m.SelectedGroups,)*@
             </div>
         </div>
 

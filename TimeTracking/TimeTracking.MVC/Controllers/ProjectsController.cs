@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using TimeTracking.MVC.Models;
+using TimeTracking.MVC.ViewModels;
 
 namespace TimeTracking.MVC.Controllers
 {
@@ -17,7 +18,8 @@ namespace TimeTracking.MVC.Controllers
         // GET: Projects
         public ActionResult Index()
         {
-            return View(db.Projects.ToList());
+            var projects = db.Projects.Include(p => p.Worker);
+            return View(projects.ToList());
         }
 
         // GET: Projects/Details/5
@@ -38,6 +40,8 @@ namespace TimeTracking.MVC.Controllers
         // GET: Projects/Create
         public ActionResult Create()
         {
+            ViewBag.WorkerID = new SelectList(db.Workers, "WorkerID", "Name");
+            ViewBag.Groups = new MultiSelectList(db.Groups, "GroupID", "Name");
             return View();
         }
 
@@ -46,7 +50,7 @@ namespace TimeTracking.MVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProjectID,Deadline")] Project project)
+        public ActionResult Create([Bind(Include = "ProjectID,WorkerID,ProjectName,Deadline")] Project project)
         {
             if (ModelState.IsValid)
             {
@@ -55,6 +59,7 @@ namespace TimeTracking.MVC.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.WorkerID = new SelectList(db.Workers, "WorkerID", "Name", project.WorkerID);
             return View(project);
         }
 
@@ -65,12 +70,21 @@ namespace TimeTracking.MVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Project project = db.Projects.Find(id);
-            if (project == null)
+            var projectGroupsViewModel = new ProjectGroupsViewModel
+            {
+                Project = db.Projects.Include(p => p.Groups).First(p => p.ProjectID == id)
+            };
+            
+            if (projectGroupsViewModel.Project == null)
             {
                 return HttpNotFound();
             }
-            return View(project);
+
+            var allGroupsList = db.Groups.ToList();
+            projectGroupsViewModel.AllGroups = allGroupsList;
+
+            ViewBag.WorkerID = new SelectList(db.Workers, "WorkerID", "Name", projectGroupsViewModel.Project.WorkerID);
+            return View(projectGroupsViewModel);
         }
 
         // POST: Projects/Edit/5
@@ -78,7 +92,7 @@ namespace TimeTracking.MVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProjectID,Deadline")] Project project)
+        public ActionResult Edit([Bind(Include = "ProjectID,WorkerID,ProjectName,Deadline")] Project project)
         {
             if (ModelState.IsValid)
             {
@@ -86,6 +100,7 @@ namespace TimeTracking.MVC.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.WorkerID = new SelectList(db.Workers, "WorkerID", "Name", project.WorkerID);
             return View(project);
         }
 
